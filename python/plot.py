@@ -8,9 +8,8 @@ import matplotlib.pyplot as plt
 parser = argparse.ArgumentParser(__doc__)
 parser.add_argument('--exe', default='build/bspline_demo')
 parser.add_argument('--output', default='trajectory.png')
-parser.add_argument('--continuous', action='store_true')
 args = parser.parse_args()
-command = [args.exe, '--json'] + (['--continuous'] if args.continuous else [])
+command = [args.exe, '--json']
 data = json.loads(subprocess.check_output(command, text=True))
 controls, samples = np.asarray(data['controls']), np.asarray(data['samples'])
 theta = np.linspace(0, 2*np.pi, 500)

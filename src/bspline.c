@@ -20,7 +20,7 @@ void bs_curve_free(BsCurve *c) {
     if(c) { free(c->points); free(c->knots); memset(c,0,sizeof(*c)); }
 }
 void bs_fit_free(BsFit *f) { if(f) { bs_curve_free(&f->curve); memset(f,0,sizeof(*f)); } }
-BsStatus bs_geometry(BsPoint a,BsPoint o,double r,int branch,int continuous,BsGeometry *g) {
+BsStatus bs_geometry(BsPoint a,BsPoint o,double r,int branch,BsGeometry *g) {
     if(!g||!finite_point(a)||!finite_point(o)||!isfinite(r)||r<=0) return BS_INVALID;
     BsPoint v=sub(a,o); double d=norm(v);
     if(!isfinite(d)||d<=r+1e-12) return BS_INVALID;
@@ -31,7 +31,6 @@ BsStatus bs_geometry(BsPoint a,BsPoint o,double r,int branch,int continuous,BsGe
     g->a=a; g->o=o; g->radius=r; g->b=add(o,radial); g->ab=sub(g->b,a);
     BsPoint ccw={-radial.y,radial.x};
     g->direction=dot(ccw,g->ab)<0 ? 1:-1;
-    if(continuous) g->direction=-g->direction;
     g->c=add(g->b,g->ab); g->theta0=atan2(radial.y,radial.x);
     g->s_ab=norm(g->ab); g->s_circle=2*PI*r; g->s_total=2*g->s_ab+g->s_circle;
     return isfinite(g->s_total)&&finite_point(g->c) ? BS_OK:BS_INVALID;

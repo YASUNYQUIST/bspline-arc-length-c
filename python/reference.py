@@ -10,7 +10,7 @@ from math import atan2, cos, sin, pi, sqrt, ceil
 import numpy as np
 
 
-def build_trajectory_geometry(A, O, R, branch=1, continuous=False):
+def build_trajectory_geometry(A, O, R, branch=1):
     Ax, Ay = A
     Ox, Oy = O
     ux, uy = Ax - Ox, Ay - Oy
@@ -28,8 +28,6 @@ def build_trajectory_geometry(A, O, R, branch=1, continuous=False):
     ABx, ABy = Bx - Ax, By - Ay
     s_ab = sqrt(ABx * ABx + ABy * ABy)
     direction = 1.0 if (-py * ABx + px * ABy) < 0 else -1.0
-    if continuous:
-        direction = -direction
     Cx, Cy = Bx + ABx, By + ABy
     return dict(A=np.array(A), O=np.array(O), R=R, B=np.array([Bx, By]),
                 C=np.array([Cx, Cy]), direction=direction, theta0=atan2(py, px),
@@ -37,10 +35,10 @@ def build_trajectory_geometry(A, O, R, branch=1, continuous=False):
                 AB=np.array([ABx, ABy]), AC=np.array([Cx - Ax, Cy - Ay]))
 
 
-def generate_trajectory_points(A, O, R, d, branch=1, continuous=False):
+def generate_trajectory_points(A, O, R, d, branch=1):
     if not np.isfinite(d) or d <= 0:
         raise ValueError("d must be positive and finite")
-    geo = build_trajectory_geometry(A, O, R, branch, continuous)
+    geo = build_trajectory_geometry(A, O, R, branch)
     sab, sc, total = geo['s_ab'], geo['s_circle'], geo['s_total']
     n = max(1, int(ceil(total / d - 1e-12)))
     if n >= 1000000:
@@ -137,8 +135,8 @@ def generate_knot_vector(P, p):
     return np.maximum.accumulate(U)
 
 
-def evaluate_error_for_d(d, A, O, R, branch=1, p=4, sample_num=1000, continuous=False):
-    P, step, geo = generate_trajectory_points(A, O, R, d, branch, continuous)
+def evaluate_error_for_d(d, A, O, R, branch=1, p=4, sample_num=1000):
+    P, step, geo = generate_trajectory_points(A, O, R, d, branch)
     if len(P) < p + 1:
         return None
     U = generate_knot_vector(P, p)
@@ -148,12 +146,11 @@ def evaluate_error_for_d(d, A, O, R, branch=1, p=4, sample_num=1000, continuous=
 
 
 def fit_bspline_by_bisection(A, O, R, err_min, err_max, branch=1, d_init=.5,
-                              max_iter=60, tol_d=1e-5, p=4, sample_num=1000,
-                              continuous=False):
+                              max_iter=60, tol_d=1e-5, p=4, sample_num=1000):
     if not 0 < err_min <= err_max:
         raise ValueError("invalid error interval")
     def ev(d):
-        res = evaluate_error_for_d(d, A, O, R, branch, p, sample_num, continuous)
+        res = evaluate_error_for_d(d, A, O, R, branch, p, sample_num)
         if res is None:
             raise ValueError("insufficient control points")
         return res

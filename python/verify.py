@@ -39,15 +39,13 @@ def independent_arc(P, U):
 
 def check(exe, case):
     args = case['args']
-    continuous = case.get('continuous', False)
-    command = [exe, '--json'] + (['--continuous'] if continuous else []) + [str(x) for x in args]
+    command = [exe, '--json'] + [str(x) for x in args]
     process = subprocess.run(command, text=True, capture_output=True, check=True)
     actual = json.loads(process.stdout)
     ax, ay, ox, oy, radius, branch, d_init, emin, emax = args
     scale = max(1., radius / 150.)
     d, e, P, U, geo, _ = ref.fit_bspline_by_bisection(
-        (ax, ay), (ox, oy), radius, emin, emax, branch=branch, d_init=d_init,
-        continuous=continuous)
+        (ax, ay), (ox, oy), radius, emin, emax, branch=branch, d_init=d_init)
     metrics = {}
     def test(name, error, tolerance):
         error = float(error)
@@ -55,6 +53,7 @@ def check(exe, case):
             raise AssertionError(f'{case["name"]}: {name}={error:.6e} > {tolerance:.6e}')
         metrics[name] = dict(error=error, tolerance=tolerance)
     test('d', abs(actual['d'] - d), 1e-12 * scale)
+    test('circle_direction', abs(actual['direction'] - geo['direction']), 0.)
     test('control_points', np.max(np.abs(np.asarray(actual['controls']) - P)), 1e-9 * scale)
     test('knots', np.max(np.abs(np.asarray(actual['knots']) - U)), 5e-13)
     test('sampled_max_error', abs(actual['max_error'] - e), 1e-9 * scale)
@@ -107,7 +106,7 @@ def check(exe, case):
     test('dense_geometric_sample_max', dense_geometric_error, emax)
     print(f'{case["name"]}: PASS, controls={len(P)}, C length error={abs(actual["length"]-total):.3e}, '
           f'original GL error={original_length_error:.3e}, inverse residual={max_residual:.3e}', flush=True)
-    return dict(name=case['name'], args=args, continuous=continuous, passed=True,
+    return dict(name=case['name'], args=args, passed=True,
                 d=d, controls=len(P), max_error=e, c_length=actual['length'],
                 independent_length=total, original_python_length=old_length,
                 original_python_length_error=original_length_error,
@@ -128,9 +127,6 @@ def cases():
     for scale in [.1, 10.]:
         yield dict(name=f'scale-{scale}', args=[500*scale, -150*scale, 0., 0., 150*scale,
                                                 -1, 20*scale, .04*scale, .05*scale])
-    for branch in [-1, 1]:
-        yield dict(name=f'continuous-{branch}', continuous=True,
-                   args=[500., -150., 0., 0., 150., branch, 20., .04, .05])
     rng = np.random.default_rng(20261029)
     for i in range(4):
         radius = float(rng.uniform(50, 300))

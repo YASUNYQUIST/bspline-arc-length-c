@@ -57,8 +57,8 @@ int main(void) {
     CHECK(bs_inverse(&zero,&arc,.5,1,1e-9,100,&inv)==BS_UNREACHABLE);
     bs_arc_free(&arc);
     BsGeometry geo; BsFit fit={0}; BsCurve c={0}; double step;
-    CHECK(bs_geometry((BsPoint){1,0},(BsPoint){0,0},1,1,0,&geo)==BS_INVALID);
-    CHECK(bs_geometry((BsPoint){500,-150},(BsPoint){0,0},150,-1,0,&geo)==BS_OK);
+    CHECK(bs_geometry((BsPoint){1,0},(BsPoint){0,0},1,1,&geo)==BS_INVALID);
+    CHECK(bs_geometry((BsPoint){500,-150},(BsPoint){0,0},150,-1,&geo)==BS_OK);
     CHECK(bs_sample(&geo,0,4,&c,&step)==BS_INVALID);
     CHECK(bs_sample(&geo,1e-20,4,&c,&step)==BS_LIMIT);
     CHECK(bs_sample(&geo,geo.s_total,4,&c,&step)==BS_INVALID);

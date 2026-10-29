@@ -34,8 +34,7 @@ typedef struct {
     int iterations,bisection_steps;
 } BsInverse;
 const char *bs_status_string(BsStatus status);
-BsStatus bs_geometry(BsPoint a,BsPoint o,double radius,int branch,
-                     int tangent_continuous,BsGeometry *out);
+BsStatus bs_geometry(BsPoint a,BsPoint o,double radius,int branch,BsGeometry *out);
 BsStatus bs_sample(const BsGeometry *geo,double d,int degree,BsCurve *out,
                    double *actual_step);
 BsStatus bs_knots(BsCurve *curve);

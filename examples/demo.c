@@ -12,20 +12,19 @@ static int number(const char *text,double *out) {
 static void point(BsPoint p) { printf("[%.17g,%.17g]",p.x,p.y); }
 int main(int argc,char **argv) {
     double args[]={500,-150,0,0,150,-1,20,0.04,0.05};
-    int json=0,continuous=0,pos=0,result=1;
+    int json=0,pos=0,result=1;
     BsFit fit={0}; BsArc arc={0}; BsCurve derivative={0};
     for(int i=1;i<argc;i++) {
         if(!strcmp(argv[i],"--json")) json=1;
-        else if(!strcmp(argv[i],"--continuous")) continuous=1;
         else if(!strcmp(argv[i],"--help")) {
-            puts("bspline_demo [--json] [--continuous] [Ax Ay Ox Oy R branch d_init err_min err_max]");
+            puts("bspline_demo [--json] [Ax Ay Ox Oy R branch d_init err_min err_max]");
             return 0;
         } else if(pos>=9||!number(argv[i],&args[pos++])) { fputs("Invalid argument\n",stderr); return 2; }
     }
     if(pos!=0&&pos!=9) { fputs("Expected all 9 numeric arguments\n",stderr); return 2; }
     BsGeometry geo;
     BsStatus status=bs_geometry((BsPoint){args[0],args[1]},(BsPoint){args[2],args[3]},
-                               args[4],args[5]>=0?1:-1,continuous,&geo);
+                               args[4],args[5]>=0?1:-1,&geo);
     if(status!=BS_OK) goto cleanup;
     status=bs_fit(&geo,args[7],args[8],args[6],4,1000,60,1e-5,&fit);
     if(status!=BS_OK) goto cleanup;
@@ -35,11 +34,11 @@ int main(int argc,char **argv) {
     BsInverse inv;
     status=bs_inverse(&fit.curve,&arc,0.5,1.2,1e-6,100,&inv); if(status!=BS_OK) goto cleanup;
     if(!json) {
-        printf("mode: %s\nd: %.12g\nactual step: %.12g\ncontrol points: %zu\n"
+        printf("d: %.12g\nactual step: %.12g\ncontrol points: %zu\n"
                "sampled max error: %.12g\narc length: %.12g\nGL difference estimate: %.3e\n"
                "u0: 0.5\nu1: %.15g\npoint: (%.12g, %.12g)\n"
                "requested length: 1.2\ncomputed length: %.12g\nresidual: %.3e\n",
-               continuous?"tangent-continuous":"original-compatible",fit.d,fit.actual_step,
+               fit.d,fit.actual_step,
                fit.curve.count,fit.max_error,arc.prefix[arc.spans],arc.estimated_error,
                inv.u,inv.point.x,inv.point.y,inv.length,inv.abs_error);
     } else {

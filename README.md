@@ -46,20 +46,19 @@ requested length: 1.2
 computed length: 1.2
 ```
 
-## 模式和输入
+## 圆周方向和输入
 
-默认保留原 Python 的圆周方向，用于数值对照。原方向在切点处会发生运动方向折返；需要切向连续时显式选择：
+圆周方向完全沿用原 Python 的选择规则，随切点分支 `branch` 一起确定。程序提供普通输出和 JSON 输出：
 
 ```sh
-./build/bspline_demo --continuous
+./build/bspline_demo
 ./build/bspline_demo --json
-./build/bspline_demo --json --continuous
 ```
 
 自定义输入需同时给出九个数值参数：
 
 ```text
-bspline_demo [--json] [--continuous] [Ax Ay Ox Oy R branch d_init err_min err_max]
+bspline_demo [--json] [Ax Ay Ox Oy R branch d_init err_min err_max]
 ```
 
 示例：
@@ -68,7 +67,7 @@ bspline_demo [--json] [--continuous] [Ax Ay Ox Oy R branch d_init err_min err_ma
 ./build/bspline_demo 500 -150 0 0 150 1 20 0.04 0.05
 ```
 
-`--continuous` 只修正几何轨迹的方向衔接；直线与圆的理论连接仍有曲率跳变。库也支持 1～16 次样条，示例及 Python 精度对照固定为四次。
+`branch` 的含义和结果保持原 Python 不变：本例 `branch=-1` 对应逆时针，`branch=+1` 对应另一切点及顺时针。库支持 1～16 次样条，示例及 Python 精度对照固定为四次。
 
 ## 在 C 程序中调用
 
@@ -81,7 +80,7 @@ int main(void) {
     BsArc arc = {0};
     BsInverse next;
     BsStatus s = bs_geometry((BsPoint){500,-150}, (BsPoint){0,0},
-                             150, -1, 0, &g);
+                             150, -1, &g);
     if (s == BS_OK)
         s = bs_fit(&g, .04, .05, 20, 4, 1000, 60, 1e-5, &fit);
     if (s == BS_OK)
@@ -111,7 +110,7 @@ python python/verify.py --exe build/bspline_demo --report docs/precision_report.
 
 Windows 将激活命令改为 `.venv\Scripts\Activate.ps1`，并指定 `--exe build/Release/bspline_demo.exe`。
 
-已验证 12 组输入：与 Python 的曲线坐标最大分量差约 `1.64e-11`；与独立 QUADPACK 的总弧长最大差约 `7.28e-12`；144 次反求的最大独立弧长残差约 `8.03e-9`。这些是报告内输入的实测结果，完整判据与适用范围见[精度文档](docs/precision.md)。
+已验证 10 组输入：与 Python 的曲线坐标最大分量差约 `1.64e-11`；与独立 QUADPACK 的总弧长最大差约 `7.28e-12`；120 次反求的最大独立弧长残差约 `8.03e-9`。这些是报告内输入的实测结果，完整判据与适用范围见[精度文档](docs/precision.md)。
 
 可选绘图（需另外安装 `matplotlib`，图对应默认几何输入）：
 

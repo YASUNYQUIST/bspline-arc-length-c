@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "case_count": 12,
+  "case_count": 10,
   "environment": {
     "python": "3.10.12",
     "numpy": "2.2.6",
@@ -26,7 +26,6 @@
         0.04,
         0.05
       ],
-      "continuous": false,
       "passed": true,
       "d": 5.625,
       "controls": 347,
@@ -44,6 +43,10 @@
         "d": {
           "error": 0.0,
           "tolerance": 1e-12
+        },
+        "circle_direction": {
+          "error": 0.0,
+          "tolerance": 0.0
         },
         "control_points": {
           "error": 0.0,
@@ -124,7 +127,6 @@
         0.04,
         0.05
       ],
-      "continuous": false,
       "passed": true,
       "d": 5.625,
       "controls": 347,
@@ -142,6 +144,10 @@
         "d": {
           "error": 0.0,
           "tolerance": 1e-12
+        },
+        "circle_direction": {
+          "error": 0.0,
+          "tolerance": 0.0
         },
         "control_points": {
           "error": 0.0,
@@ -222,7 +228,6 @@
         0.04,
         0.05
       ],
-      "continuous": false,
       "passed": true,
       "d": 5.625,
       "controls": 347,
@@ -240,6 +245,10 @@
         "d": {
           "error": 0.0,
           "tolerance": 1e-12
+        },
+        "circle_direction": {
+          "error": 0.0,
+          "tolerance": 0.0
         },
         "control_points": {
           "error": 0.0,
@@ -320,7 +329,6 @@
         0.04,
         0.05
       ],
-      "continuous": false,
       "passed": true,
       "d": 5.625,
       "controls": 347,
@@ -338,6 +346,10 @@
         "d": {
           "error": 0.0,
           "tolerance": 1e-12
+        },
+        "circle_direction": {
+          "error": 0.0,
+          "tolerance": 0.0
         },
         "control_points": {
           "error": 0.0,
@@ -418,7 +430,6 @@
         0.004,
         0.005000000000000001
       ],
-      "continuous": false,
       "passed": true,
       "d": 0.5625,
       "controls": 347,
@@ -436,6 +447,10 @@
         "d": {
           "error": 0.0,
           "tolerance": 1e-12
+        },
+        "circle_direction": {
+          "error": 0.0,
+          "tolerance": 0.0
         },
         "control_points": {
           "error": 3.552713678800501e-15,
@@ -516,7 +531,6 @@
         0.4,
         0.5
       ],
-      "continuous": false,
       "passed": true,
       "d": 56.25,
       "controls": 347,
@@ -534,6 +548,10 @@
         "d": {
           "error": 0.0,
           "tolerance": 1e-11
+        },
+        "circle_direction": {
+          "error": 0.0,
+          "tolerance": 0.0
         },
         "control_points": {
           "error": 0.0,
@@ -602,202 +620,6 @@
       }
     },
     {
-      "name": "continuous--1",
-      "args": [
-        500.0,
-        -150.0,
-        0.0,
-        0.0,
-        150.0,
-        -1,
-        20.0,
-        0.04,
-        0.05
-      ],
-      "continuous": true,
-      "passed": true,
-      "d": 5.625,
-      "controls": 347,
-      "max_error": 0.04376925279515831,
-      "c_length": 1942.2035083904032,
-      "independent_length": 1942.2035083904009,
-      "original_python_length": 1942.2035083904007,
-      "original_python_length_error": 2.2737367544323206e-13,
-      "original_gl_difference_estimate": 2.233768725545815e-12,
-      "original_gl_max_order": 8,
-      "dense_trapezoid_error": 1.5361372334155021e-06,
-      "dense_geometric_max_error": 0.04376925279521515,
-      "dense_geometric_within_interval": true,
-      "metrics": {
-        "d": {
-          "error": 0.0,
-          "tolerance": 1e-12
-        },
-        "control_points": {
-          "error": 0.0,
-          "tolerance": 1e-09
-        },
-        "knots": {
-          "error": 1.2212453270876722e-15,
-          "tolerance": 5e-13
-        },
-        "sampled_max_error": {
-          "error": 2.842170943040401e-14,
-          "tolerance": 1e-09
-        },
-        "positions_vs_python": {
-          "error": 2.3305801732931286e-12,
-          "tolerance": 2e-09
-        },
-        "derivatives_vs_python": {
-          "error": 4.297362465877086e-10,
-          "tolerance": 2e-06
-        },
-        "positions_vs_scipy": {
-          "error": 2.3305801732931286e-12,
-          "tolerance": 2e-09
-        },
-        "derivatives_vs_scipy": {
-          "error": 4.297362465877086e-10,
-          "tolerance": 2e-06
-        },
-        "cumulative_vs_quadpack": {
-          "error": 2.2737367544323206e-12,
-          "tolerance": 1e-08
-        },
-        "total_vs_quadpack": {
-          "error": 2.2737367544323206e-12,
-          "tolerance": 1e-08
-        },
-        "default_inverse_point_vs_python": {
-          "error": 9.061640326990528e-13,
-          "tolerance": 3e-06
-        },
-        "default_inverse_length_vs_python": {
-          "error": 0.0,
-          "tolerance": 3e-06
-        },
-        "default_inverse_true_residual": {
-          "error": 6.816769371198461e-14,
-          "tolerance": 1.01e-06
-        },
-        "inverse_true_residual": {
-          "error": 1.439275365555659e-09,
-          "tolerance": 1.1e-08
-        },
-        "inverse_parameter_vs_brent": {
-          "error": 7.409350910592138e-13,
-          "tolerance": 1e-09
-        },
-        "dense_trapezoid_reference": {
-          "error": 1.5361372334155021e-06,
-          "tolerance": 0.0005
-        },
-        "dense_geometric_sample_max": {
-          "error": 0.04376925279521515,
-          "tolerance": 0.05
-        }
-      }
-    },
-    {
-      "name": "continuous-1",
-      "args": [
-        500.0,
-        -150.0,
-        0.0,
-        0.0,
-        150.0,
-        1,
-        20.0,
-        0.04,
-        0.05
-      ],
-      "continuous": true,
-      "passed": true,
-      "d": 5.625,
-      "controls": 347,
-      "max_error": 0.04376925279521515,
-      "c_length": 1942.2035083904016,
-      "independent_length": 1942.2035083904016,
-      "original_python_length": 1942.2035083904016,
-      "original_python_length_error": 0.0,
-      "original_gl_difference_estimate": 2.26840768391412e-12,
-      "original_gl_max_order": 8,
-      "dense_trapezoid_error": 1.5361365512944758e-06,
-      "dense_geometric_max_error": 0.043769252795243574,
-      "dense_geometric_within_interval": true,
-      "metrics": {
-        "d": {
-          "error": 0.0,
-          "tolerance": 1e-12
-        },
-        "control_points": {
-          "error": 0.0,
-          "tolerance": 1e-09
-        },
-        "knots": {
-          "error": 1.3322676295501878e-15,
-          "tolerance": 5e-13
-        },
-        "sampled_max_error": {
-          "error": 0.0,
-          "tolerance": 1e-09
-        },
-        "positions_vs_python": {
-          "error": 2.1032064978498966e-12,
-          "tolerance": 2e-09
-        },
-        "derivatives_vs_python": {
-          "error": 4.388311936054379e-10,
-          "tolerance": 2e-06
-        },
-        "positions_vs_scipy": {
-          "error": 2.1600499167107046e-12,
-          "tolerance": 2e-09
-        },
-        "derivatives_vs_scipy": {
-          "error": 4.388311936054379e-10,
-          "tolerance": 2e-06
-        },
-        "cumulative_vs_quadpack": {
-          "error": 2.9558577807620168e-12,
-          "tolerance": 1e-08
-        },
-        "total_vs_quadpack": {
-          "error": 0.0,
-          "tolerance": 1e-08
-        },
-        "default_inverse_point_vs_python": {
-          "error": 9.663381206337363e-13,
-          "tolerance": 3e-06
-        },
-        "default_inverse_length_vs_python": {
-          "error": 0.0,
-          "tolerance": 3e-06
-        },
-        "default_inverse_true_residual": {
-          "error": 6.816769371198461e-14,
-          "tolerance": 1.01e-06
-        },
-        "inverse_true_residual": {
-          "error": 1.4395027392311022e-09,
-          "tolerance": 1.1e-08
-        },
-        "inverse_parameter_vs_brent": {
-          "error": 7.411016245129076e-13,
-          "tolerance": 1e-09
-        },
-        "dense_trapezoid_reference": {
-          "error": 1.5361365512944758e-06,
-          "tolerance": 0.0005
-        },
-        "dense_geometric_sample_max": {
-          "error": 0.043769252795243574,
-          "tolerance": 0.05
-        }
-      }
-    },
-    {
       "name": "seeded-0",
       "args": [
         -601.6676640003798,
@@ -810,7 +632,6 @@
         0.04170170015659104,
         0.052127125195738803
       ],
-      "continuous": false,
       "passed": true,
       "d": 5.864301584520614,
       "controls": 426,
@@ -828,6 +649,10 @@
         "d": {
           "error": 0.0,
           "tolerance": 1.042542503914776e-12
+        },
+        "circle_direction": {
+          "error": 0.0,
+          "tolerance": 0.0
         },
         "control_points": {
           "error": 1.1368683772161603e-13,
@@ -908,7 +733,6 @@
         0.04627257139108071,
         0.05784071423885089
       ],
-      "continuous": false,
       "passed": true,
       "d": 6.507080351870725,
       "controls": 387,
@@ -926,6 +750,10 @@
         "d": {
           "error": 0.0,
           "tolerance": 1.1568142847770178e-12
+        },
+        "circle_direction": {
+          "error": 0.0,
+          "tolerance": 0.0
         },
         "control_points": {
           "error": 1.4210854715202004e-14,
@@ -1006,7 +834,6 @@
         0.04959458639859194,
         0.061993232998239924
       ],
-      "continuous": false,
       "passed": true,
       "d": 6.974238712301991,
       "controls": 393,
@@ -1024,6 +851,10 @@
         "d": {
           "error": 0.0,
           "tolerance": 1.2398646599647985e-12
+        },
+        "circle_direction": {
+          "error": 0.0,
+          "tolerance": 0.0
         },
         "control_points": {
           "error": 0.0,
@@ -1104,7 +935,6 @@
         0.05293965656017971,
         0.06617457070022463
       ],
-      "continuous": false,
       "passed": true,
       "d": 7.444639203775271,
       "controls": 355,
@@ -1122,6 +952,10 @@
         "d": {
           "error": 0.0,
           "tolerance": 1.3234914140044926e-12
+        },
+        "circle_direction": {
+          "error": 0.0,
+          "tolerance": 0.0
         },
         "control_points": {
           "error": 5.684341886080802e-14,
