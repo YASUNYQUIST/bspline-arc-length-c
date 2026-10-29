@@ -2,10 +2,15 @@
 
 把“直线 AB → 整圆 → 直线 BC”的 Python 算法整理为独立 C 项目：按弧长采样生成控制点，搜索离散步长，构造四次 B 样条，以高斯–勒让德积分计算弧长，再用带区间保护的 Newton 法按目标弧长寻找下一插补点。
 
-- [算法架构、公式、Mermaid 流程图与实现步骤](docs/architecture.md)
+- [先看这里：六张图讲清几何、控制点、节点与弧长](docs/architecture.md)
+- [实现细节：递推公式、Mermaid 流程图与 C API 对照](docs/implementation_details.md)
 - [精度验证说明与实测结果](docs/precision.md)
 - [机器可读精度报告](docs/precision_report.json)
 - [C API](include/bspline.h) / [C 示例](examples/demo.c) / [Python 参考](python/reference.py)
+
+第一次阅读建议从图解开始：每个缩写都有中文解释、类型和单位；另用六个控制点的小例子演算参数标签、节点数组和加权求值。
+
+![起点A到切点B，绕圆一圈回B，再沿切线到终点；半径OB与切线垂直。](docs/images/01-geometry.png)
 
 ## 快速运行
 
@@ -124,3 +129,14 @@ python python/plot.py --exe build/bspline_demo --output trajectory.png
 5. 所有拥有内存的输出结构先零初始化，使用后调用对应 `*_free`；已用结构作为新输出前先释放。手工构造的 `BsCurve` 必须提供有限、非递减且尺寸正确的节点向量，求值参数必须处于有效域内。`BsArc` 必须来自传给 `bs_inverse` 的同一条曲线；曲线改变后重新创建弧长对象。
 
 本地验证环境为 WSL Ubuntu 22.04 / GCC 11.4。仓库内提供 Linux、Windows 的 CI 配置，其他平台的精度应以对应运行报告为准。
+
+## 重现文档配图
+
+安装 `requirements-docs.txt`，并准备 Microsoft YaHei 或 Noto Sans CJK 中文字体：
+
+```sh
+python -m pip install -r requirements-docs.txt
+python tools/generate_doc_figures.py
+```
+
+脚本根据真实几何、样条和积分计算图示，输出 PNG、SVG 及教学例子数据到 `docs/images/`。教学粗采样图和六点例子都在文档中注明用途，与正式精度结果区分。
