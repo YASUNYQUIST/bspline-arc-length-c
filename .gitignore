@@ -1,0 +1,10 @@
+build*/
+__pycache__/
+*.pyc
+*.so
+*.dll
+*.exe
+*.o
+out/
+.venv/
+trajectory.png

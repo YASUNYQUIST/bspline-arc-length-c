@@ -1,0 +1,1193 @@
+{
+  "passed": true,
+  "case_count": 12,
+  "environment": {
+    "python": "3.10.12",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "platform": "Linux x86_64"
+  },
+  "notes": [
+    "All tolerances are absolute and expressed in the input coordinate units.",
+    "GL successive-order differences are estimates, not rigorous error bounds.",
+    "A sampled maximum is not a certified continuous-curve maximum."
+  ],
+  "cases": [
+    {
+      "name": "original-input",
+      "args": [
+        500.0,
+        -150.0,
+        0.0,
+        0.0,
+        150.0,
+        -1,
+        20.0,
+        0.04,
+        0.05
+      ],
+      "continuous": false,
+      "passed": true,
+      "d": 5.625,
+      "controls": 347,
+      "max_error": 0.043996841487683014,
+      "c_length": 1932.3199734077948,
+      "independent_length": 1932.3199734077944,
+      "original_python_length": 1932.3199732989265,
+      "original_python_length_error": 1.0886788004427217e-07,
+      "original_gl_difference_estimate": 7.782539158673885e-06,
+      "original_gl_max_order": 256,
+      "dense_trapezoid_error": 1.5339558103732998e-06,
+      "dense_geometric_max_error": 0.04399751743221714,
+      "dense_geometric_within_interval": true,
+      "metrics": {
+        "d": {
+          "error": 0.0,
+          "tolerance": 1e-12
+        },
+        "control_points": {
+          "error": 0.0,
+          "tolerance": 1e-09
+        },
+        "knots": {
+          "error": 9.992007221626409e-16,
+          "tolerance": 5e-13
+        },
+        "sampled_max_error": {
+          "error": 0.0,
+          "tolerance": 1e-09
+        },
+        "positions_vs_python": {
+          "error": 1.8189894035458565e-12,
+          "tolerance": 2e-09
+        },
+        "derivatives_vs_python": {
+          "error": 6.07258243690012e-10,
+          "tolerance": 2e-06
+        },
+        "positions_vs_scipy": {
+          "error": 1.8758328224066645e-12,
+          "tolerance": 2e-09
+        },
+        "derivatives_vs_scipy": {
+          "error": 6.070877134334296e-10,
+          "tolerance": 2e-06
+        },
+        "cumulative_vs_quadpack": {
+          "error": 1.8189894035458565e-12,
+          "tolerance": 1e-08
+        },
+        "total_vs_quadpack": {
+          "error": 4.547473508864641e-13,
+          "tolerance": 1e-08
+        },
+        "default_inverse_point_vs_python": {
+          "error": 8.619771563189715e-13,
+          "tolerance": 3e-06
+        },
+        "default_inverse_length_vs_python": {
+          "error": 1.1368683772161603e-13,
+          "tolerance": 3e-06
+        },
+        "default_inverse_true_residual": {
+          "error": 4.551914400963142e-14,
+          "tolerance": 1.01e-06
+        },
+        "inverse_true_residual": {
+          "error": 6.533753094117856e-09,
+          "tolerance": 1.1e-08
+        },
+        "inverse_parameter_vs_brent": {
+          "error": 3.3500702212307942e-12,
+          "tolerance": 1e-09
+        },
+        "dense_trapezoid_reference": {
+          "error": 1.5339558103732998e-06,
+          "tolerance": 0.0005
+        },
+        "dense_geometric_sample_max": {
+          "error": 0.04399751743221714,
+          "tolerance": 0.05
+        }
+      }
+    },
+    {
+      "name": "opposite-branch",
+      "args": [
+        500.0,
+        -150.0,
+        0.0,
+        0.0,
+        150.0,
+        1,
+        20.0,
+        0.04,
+        0.05
+      ],
+      "continuous": false,
+      "passed": true,
+      "d": 5.625,
+      "controls": 347,
+      "max_error": 0.043996841487683014,
+      "c_length": 1932.319973407797,
+      "independent_length": 1932.3199734077957,
+      "original_python_length": 1932.3199732989283,
+      "original_python_length_error": 1.0886742529692128e-07,
+      "original_gl_difference_estimate": 7.782539193756932e-06,
+      "original_gl_max_order": 256,
+      "dense_trapezoid_error": 1.533954446131247e-06,
+      "dense_geometric_max_error": 0.04399751743221714,
+      "dense_geometric_within_interval": true,
+      "metrics": {
+        "d": {
+          "error": 0.0,
+          "tolerance": 1e-12
+        },
+        "control_points": {
+          "error": 0.0,
+          "tolerance": 1e-09
+        },
+        "knots": {
+          "error": 1.6653345369377348e-15,
+          "tolerance": 5e-13
+        },
+        "sampled_max_error": {
+          "error": 0.0,
+          "tolerance": 1e-09
+        },
+        "positions_vs_python": {
+          "error": 2.3874235921539366e-12,
+          "tolerance": 2e-09
+        },
+        "derivatives_vs_python": {
+          "error": 9.188738658849616e-10,
+          "tolerance": 2e-06
+        },
+        "positions_vs_scipy": {
+          "error": 2.4442670110147446e-12,
+          "tolerance": 2e-09
+        },
+        "derivatives_vs_scipy": {
+          "error": 9.189307093038224e-10,
+          "tolerance": 2e-06
+        },
+        "cumulative_vs_quadpack": {
+          "error": 1.3642420526593924e-12,
+          "tolerance": 1e-08
+        },
+        "total_vs_quadpack": {
+          "error": 1.3642420526593924e-12,
+          "tolerance": 1e-08
+        },
+        "default_inverse_point_vs_python": {
+          "error": 1.1795009413617663e-12,
+          "tolerance": 3e-06
+        },
+        "default_inverse_length_vs_python": {
+          "error": 1.1368683772161603e-13,
+          "tolerance": 3e-06
+        },
+        "default_inverse_true_residual": {
+          "error": 4.551914400963142e-14,
+          "tolerance": 1.01e-06
+        },
+        "inverse_true_residual": {
+          "error": 6.533866780955577e-09,
+          "tolerance": 1.1e-08
+        },
+        "inverse_parameter_vs_brent": {
+          "error": 3.3501257323820255e-12,
+          "tolerance": 1e-09
+        },
+        "dense_trapezoid_reference": {
+          "error": 1.533954446131247e-06,
+          "tolerance": 0.0005
+        },
+        "dense_geometric_sample_max": {
+          "error": 0.04399751743221714,
+          "tolerance": 0.05
+        }
+      }
+    },
+    {
+      "name": "translated",
+      "args": [
+        623.0,
+        -227.0,
+        123.0,
+        -77.0,
+        150.0,
+        -1,
+        20.0,
+        0.04,
+        0.05
+      ],
+      "continuous": false,
+      "passed": true,
+      "d": 5.625,
+      "controls": 347,
+      "max_error": 0.043996841487711436,
+      "c_length": 1932.3199734077948,
+      "independent_length": 1932.3199734077955,
+      "original_python_length": 1932.319973298928,
+      "original_python_length_error": 1.0886742529692128e-07,
+      "original_gl_difference_estimate": 7.782539150458234e-06,
+      "original_gl_max_order": 256,
+      "dense_trapezoid_error": 1.5339546735049225e-06,
+      "dense_geometric_max_error": 0.04399751743224556,
+      "dense_geometric_within_interval": true,
+      "metrics": {
+        "d": {
+          "error": 0.0,
+          "tolerance": 1e-12
+        },
+        "control_points": {
+          "error": 0.0,
+          "tolerance": 1e-09
+        },
+        "knots": {
+          "error": 6.661338147750939e-16,
+          "tolerance": 5e-13
+        },
+        "sampled_max_error": {
+          "error": 2.842170943040401e-14,
+          "tolerance": 1e-09
+        },
+        "positions_vs_python": {
+          "error": 1.1937117960769683e-12,
+          "tolerance": 2e-09
+        },
+        "derivatives_vs_python": {
+          "error": 4.107505446881987e-10,
+          "tolerance": 2e-06
+        },
+        "positions_vs_scipy": {
+          "error": 1.1937117960769683e-12,
+          "tolerance": 2e-09
+        },
+        "derivatives_vs_scipy": {
+          "error": 4.108073881070595e-10,
+          "tolerance": 2e-06
+        },
+        "cumulative_vs_quadpack": {
+          "error": 1.8189894035458565e-12,
+          "tolerance": 1e-08
+        },
+        "total_vs_quadpack": {
+          "error": 6.821210263296962e-13,
+          "tolerance": 1e-08
+        },
+        "default_inverse_point_vs_python": {
+          "error": 5.684341886080801e-13,
+          "tolerance": 3e-06
+        },
+        "default_inverse_length_vs_python": {
+          "error": 0.0,
+          "tolerance": 3e-06
+        },
+        "default_inverse_true_residual": {
+          "error": 4.551914400963142e-14,
+          "tolerance": 1.01e-06
+        },
+        "inverse_true_residual": {
+          "error": 6.533753094117856e-09,
+          "tolerance": 1.1e-08
+        },
+        "inverse_parameter_vs_brent": {
+          "error": 3.3500702212307942e-12,
+          "tolerance": 1e-09
+        },
+        "dense_trapezoid_reference": {
+          "error": 1.5339546735049225e-06,
+          "tolerance": 0.0005
+        },
+        "dense_geometric_sample_max": {
+          "error": 0.04399751743224556,
+          "tolerance": 0.05
+        }
+      }
+    },
+    {
+      "name": "rotated",
+      "args": [
+        472.6176464229899,
+        221.6586571501184,
+        0.0,
+        0.0,
+        150.0,
+        -1,
+        20.0,
+        0.04,
+        0.05
+      ],
+      "continuous": false,
+      "passed": true,
+      "d": 5.625,
+      "controls": 347,
+      "max_error": 0.043996841487683014,
+      "c_length": 1932.3199734077966,
+      "independent_length": 1932.3199734077953,
+      "original_python_length": 1932.3199732989274,
+      "original_python_length_error": 1.0886788004427217e-07,
+      "original_gl_difference_estimate": 7.782539184209014e-06,
+      "original_gl_max_order": 256,
+      "dense_trapezoid_error": 1.5339553556259489e-06,
+      "dense_geometric_max_error": 0.043997517432188715,
+      "dense_geometric_within_interval": true,
+      "metrics": {
+        "d": {
+          "error": 0.0,
+          "tolerance": 1e-12
+        },
+        "control_points": {
+          "error": 0.0,
+          "tolerance": 1e-09
+        },
+        "knots": {
+          "error": 9.992007221626409e-16,
+          "tolerance": 5e-13
+        },
+        "sampled_max_error": {
+          "error": 0.0,
+          "tolerance": 1e-09
+        },
+        "positions_vs_python": {
+          "error": 1.3358203432289883e-12,
+          "tolerance": 2e-09
+        },
+        "derivatives_vs_python": {
+          "error": 5.445599526865408e-10,
+          "tolerance": 2e-06
+        },
+        "positions_vs_scipy": {
+          "error": 1.3642420526593924e-12,
+          "tolerance": 2e-09
+        },
+        "derivatives_vs_scipy": {
+          "error": 5.446167961054016e-10,
+          "tolerance": 2e-06
+        },
+        "cumulative_vs_quadpack": {
+          "error": 1.3642420526593924e-12,
+          "tolerance": 1e-08
+        },
+        "total_vs_quadpack": {
+          "error": 1.3642420526593924e-12,
+          "tolerance": 1e-08
+        },
+        "default_inverse_point_vs_python": {
+          "error": 4.831690603168681e-13,
+          "tolerance": 3e-06
+        },
+        "default_inverse_length_vs_python": {
+          "error": 3.410605131648481e-13,
+          "tolerance": 3e-06
+        },
+        "default_inverse_true_residual": {
+          "error": 4.551914400963142e-14,
+          "tolerance": 1.01e-06
+        },
+        "inverse_true_residual": {
+          "error": 6.533980467793299e-09,
+          "tolerance": 1.1e-08
+        },
+        "inverse_parameter_vs_brent": {
+          "error": 3.3502089991088724e-12,
+          "tolerance": 1e-09
+        },
+        "dense_trapezoid_reference": {
+          "error": 1.5339553556259489e-06,
+          "tolerance": 0.0005
+        },
+        "dense_geometric_sample_max": {
+          "error": 0.043997517432188715,
+          "tolerance": 0.05
+        }
+      }
+    },
+    {
+      "name": "scale-0.1",
+      "args": [
+        50.0,
+        -15.0,
+        0.0,
+        0.0,
+        15.0,
+        -1,
+        2.0,
+        0.004,
+        0.005000000000000001
+      ],
+      "continuous": false,
+      "passed": true,
+      "d": 0.5625,
+      "controls": 347,
+      "max_error": 0.004399684148770788,
+      "c_length": 193.2319973407802,
+      "independent_length": 193.2319973407802,
+      "original_python_length": 193.23199732989315,
+      "original_python_length_error": 1.0887049484153977e-08,
+      "original_gl_difference_estimate": 7.834825958563663e-07,
+      "original_gl_max_order": 256,
+      "dense_trapezoid_error": 1.5339480796683347e-07,
+      "dense_geometric_max_error": 0.004399751743221714,
+      "dense_geometric_within_interval": true,
+      "metrics": {
+        "d": {
+          "error": 0.0,
+          "tolerance": 1e-12
+        },
+        "control_points": {
+          "error": 3.552713678800501e-15,
+          "tolerance": 1e-09
+        },
+        "knots": {
+          "error": 4.440892098500626e-16,
+          "tolerance": 5e-13
+        },
+        "sampled_max_error": {
+          "error": 3.552713678800501e-15,
+          "tolerance": 1e-09
+        },
+        "positions_vs_python": {
+          "error": 7.105427357601002e-14,
+          "tolerance": 2e-09
+        },
+        "derivatives_vs_python": {
+          "error": 2.1181278953008587e-11,
+          "tolerance": 2e-06
+        },
+        "positions_vs_scipy": {
+          "error": 7.105427357601002e-14,
+          "tolerance": 2e-09
+        },
+        "derivatives_vs_scipy": {
+          "error": 2.1174173525650986e-11,
+          "tolerance": 2e-06
+        },
+        "cumulative_vs_quadpack": {
+          "error": 1.1368683772161603e-13,
+          "tolerance": 1e-08
+        },
+        "total_vs_quadpack": {
+          "error": 0.0,
+          "tolerance": 1e-08
+        },
+        "default_inverse_point_vs_python": {
+          "error": 3.26405569239796e-14,
+          "tolerance": 3e-06
+        },
+        "default_inverse_length_vs_python": {
+          "error": 0.0,
+          "tolerance": 3e-06
+        },
+        "default_inverse_true_residual": {
+          "error": 2.5868196473766147e-13,
+          "tolerance": 1.01e-06
+        },
+        "inverse_true_residual": {
+          "error": 6.534435215144185e-10,
+          "tolerance": 1.1e-08
+        },
+        "inverse_parameter_vs_brent": {
+          "error": 3.3502089991088724e-12,
+          "tolerance": 1e-09
+        },
+        "dense_trapezoid_reference": {
+          "error": 1.5339480796683347e-07,
+          "tolerance": 0.0005
+        },
+        "dense_geometric_sample_max": {
+          "error": 0.004399751743221714,
+          "tolerance": 0.005000000000000001
+        }
+      }
+    },
+    {
+      "name": "scale-10.0",
+      "args": [
+        5000.0,
+        -1500.0,
+        0.0,
+        0.0,
+        1500.0,
+        -1,
+        200.0,
+        0.4,
+        0.5
+      ],
+      "continuous": false,
+      "passed": true,
+      "d": 56.25,
+      "controls": 347,
+      "max_error": 0.43996841487683014,
+      "c_length": 19323.19973407798,
+      "independent_length": 19323.199734077974,
+      "original_python_length": 19323.1997329893,
+      "original_python_length_error": 1.0886760719586164e-06,
+      "original_gl_difference_estimate": 7.782539184475468e-05,
+      "original_gl_max_order": 256,
+      "dense_trapezoid_error": 1.533952308818698e-05,
+      "dense_geometric_max_error": 0.43997517432217137,
+      "dense_geometric_within_interval": true,
+      "metrics": {
+        "d": {
+          "error": 0.0,
+          "tolerance": 1e-11
+        },
+        "control_points": {
+          "error": 0.0,
+          "tolerance": 1e-08
+        },
+        "knots": {
+          "error": 7.771561172376096e-16,
+          "tolerance": 5e-13
+        },
+        "sampled_max_error": {
+          "error": 2.2737367544323206e-13,
+          "tolerance": 1e-08
+        },
+        "positions_vs_python": {
+          "error": 1.6370904631912708e-11,
+          "tolerance": 2e-08
+        },
+        "derivatives_vs_python": {
+          "error": 4.8976289690472186e-09,
+          "tolerance": 1.9999999999999998e-05
+        },
+        "positions_vs_scipy": {
+          "error": 1.6370904631912708e-11,
+          "tolerance": 2e-08
+        },
+        "derivatives_vs_scipy": {
+          "error": 4.8985384637489915e-09,
+          "tolerance": 1.9999999999999998e-05
+        },
+        "cumulative_vs_quadpack": {
+          "error": 1.0913936421275139e-11,
+          "tolerance": 1e-07
+        },
+        "total_vs_quadpack": {
+          "error": 7.275957614183426e-12,
+          "tolerance": 1e-07
+        },
+        "default_inverse_point_vs_python": {
+          "error": 8.354650304909228e-12,
+          "tolerance": 3e-05
+        },
+        "default_inverse_length_vs_python": {
+          "error": 0.0,
+          "tolerance": 3e-05
+        },
+        "default_inverse_true_residual": {
+          "error": 7.276401703393276e-13,
+          "tolerance": 1.01e-06
+        },
+        "inverse_true_residual": {
+          "error": 2.1973391994833946e-09,
+          "tolerance": 1.0999999999999999e-07
+        },
+        "inverse_parameter_vs_brent": {
+          "error": 1.1457501614131615e-13,
+          "tolerance": 1e-09
+        },
+        "dense_trapezoid_reference": {
+          "error": 1.533952308818698e-05,
+          "tolerance": 0.005
+        },
+        "dense_geometric_sample_max": {
+          "error": 0.43997517432217137,
+          "tolerance": 0.5
+        }
+      }
+    },
+    {
+      "name": "continuous--1",
+      "args": [
+        500.0,
+        -150.0,
+        0.0,
+        0.0,
+        150.0,
+        -1,
+        20.0,
+        0.04,
+        0.05
+      ],
+      "continuous": true,
+      "passed": true,
+      "d": 5.625,
+      "controls": 347,
+      "max_error": 0.04376925279515831,
+      "c_length": 1942.2035083904032,
+      "independent_length": 1942.2035083904009,
+      "original_python_length": 1942.2035083904007,
+      "original_python_length_error": 2.2737367544323206e-13,
+      "original_gl_difference_estimate": 2.233768725545815e-12,
+      "original_gl_max_order": 8,
+      "dense_trapezoid_error": 1.5361372334155021e-06,
+      "dense_geometric_max_error": 0.04376925279521515,
+      "dense_geometric_within_interval": true,
+      "metrics": {
+        "d": {
+          "error": 0.0,
+          "tolerance": 1e-12
+        },
+        "control_points": {
+          "error": 0.0,
+          "tolerance": 1e-09
+        },
+        "knots": {
+          "error": 1.2212453270876722e-15,
+          "tolerance": 5e-13
+        },
+        "sampled_max_error": {
+          "error": 2.842170943040401e-14,
+          "tolerance": 1e-09
+        },
+        "positions_vs_python": {
+          "error": 2.3305801732931286e-12,
+          "tolerance": 2e-09
+        },
+        "derivatives_vs_python": {
+          "error": 4.297362465877086e-10,
+          "tolerance": 2e-06
+        },
+        "positions_vs_scipy": {
+          "error": 2.3305801732931286e-12,
+          "tolerance": 2e-09
+        },
+        "derivatives_vs_scipy": {
+          "error": 4.297362465877086e-10,
+          "tolerance": 2e-06
+        },
+        "cumulative_vs_quadpack": {
+          "error": 2.2737367544323206e-12,
+          "tolerance": 1e-08
+        },
+        "total_vs_quadpack": {
+          "error": 2.2737367544323206e-12,
+          "tolerance": 1e-08
+        },
+        "default_inverse_point_vs_python": {
+          "error": 9.061640326990528e-13,
+          "tolerance": 3e-06
+        },
+        "default_inverse_length_vs_python": {
+          "error": 0.0,
+          "tolerance": 3e-06
+        },
+        "default_inverse_true_residual": {
+          "error": 6.816769371198461e-14,
+          "tolerance": 1.01e-06
+        },
+        "inverse_true_residual": {
+          "error": 1.439275365555659e-09,
+          "tolerance": 1.1e-08
+        },
+        "inverse_parameter_vs_brent": {
+          "error": 7.409350910592138e-13,
+          "tolerance": 1e-09
+        },
+        "dense_trapezoid_reference": {
+          "error": 1.5361372334155021e-06,
+          "tolerance": 0.0005
+        },
+        "dense_geometric_sample_max": {
+          "error": 0.04376925279521515,
+          "tolerance": 0.05
+        }
+      }
+    },
+    {
+      "name": "continuous-1",
+      "args": [
+        500.0,
+        -150.0,
+        0.0,
+        0.0,
+        150.0,
+        1,
+        20.0,
+        0.04,
+        0.05
+      ],
+      "continuous": true,
+      "passed": true,
+      "d": 5.625,
+      "controls": 347,
+      "max_error": 0.04376925279521515,
+      "c_length": 1942.2035083904016,
+      "independent_length": 1942.2035083904016,
+      "original_python_length": 1942.2035083904016,
+      "original_python_length_error": 0.0,
+      "original_gl_difference_estimate": 2.26840768391412e-12,
+      "original_gl_max_order": 8,
+      "dense_trapezoid_error": 1.5361365512944758e-06,
+      "dense_geometric_max_error": 0.043769252795243574,
+      "dense_geometric_within_interval": true,
+      "metrics": {
+        "d": {
+          "error": 0.0,
+          "tolerance": 1e-12
+        },
+        "control_points": {
+          "error": 0.0,
+          "tolerance": 1e-09
+        },
+        "knots": {
+          "error": 1.3322676295501878e-15,
+          "tolerance": 5e-13
+        },
+        "sampled_max_error": {
+          "error": 0.0,
+          "tolerance": 1e-09
+        },
+        "positions_vs_python": {
+          "error": 2.1032064978498966e-12,
+          "tolerance": 2e-09
+        },
+        "derivatives_vs_python": {
+          "error": 4.388311936054379e-10,
+          "tolerance": 2e-06
+        },
+        "positions_vs_scipy": {
+          "error": 2.1600499167107046e-12,
+          "tolerance": 2e-09
+        },
+        "derivatives_vs_scipy": {
+          "error": 4.388311936054379e-10,
+          "tolerance": 2e-06
+        },
+        "cumulative_vs_quadpack": {
+          "error": 2.9558577807620168e-12,
+          "tolerance": 1e-08
+        },
+        "total_vs_quadpack": {
+          "error": 0.0,
+          "tolerance": 1e-08
+        },
+        "default_inverse_point_vs_python": {
+          "error": 9.663381206337363e-13,
+          "tolerance": 3e-06
+        },
+        "default_inverse_length_vs_python": {
+          "error": 0.0,
+          "tolerance": 3e-06
+        },
+        "default_inverse_true_residual": {
+          "error": 6.816769371198461e-14,
+          "tolerance": 1.01e-06
+        },
+        "inverse_true_residual": {
+          "error": 1.4395027392311022e-09,
+          "tolerance": 1.1e-08
+        },
+        "inverse_parameter_vs_brent": {
+          "error": 7.411016245129076e-13,
+          "tolerance": 1e-09
+        },
+        "dense_trapezoid_reference": {
+          "error": 1.5361365512944758e-06,
+          "tolerance": 0.0005
+        },
+        "dense_geometric_sample_max": {
+          "error": 0.043769252795243574,
+          "tolerance": 0.05
+        }
+      }
+    },
+    {
+      "name": "seeded-0",
+      "args": [
+        -601.6676640003798,
+        309.91673327693456,
+        144.74420409969144,
+        121.45221173484504,
+        156.38137558721638,
+        1,
+        20.85085007829552,
+        0.04170170015659104,
+        0.052127125195738803
+      ],
+      "continuous": false,
+      "passed": true,
+      "d": 5.864301584520614,
+      "controls": 426,
+      "max_error": 0.047106051457774356,
+      "c_length": 2476.776578884587,
+      "independent_length": 2476.776578884584,
+      "original_python_length": 2476.7765788847028,
+      "original_python_length_error": 1.1868905858136714e-10,
+      "original_gl_difference_estimate": 4.2616194084743597e-07,
+      "original_gl_max_order": 256,
+      "dense_trapezoid_error": 2.4030123313423246e-06,
+      "dense_geometric_max_error": 0.04714918714549299,
+      "dense_geometric_within_interval": true,
+      "metrics": {
+        "d": {
+          "error": 0.0,
+          "tolerance": 1.042542503914776e-12
+        },
+        "control_points": {
+          "error": 1.1368683772161603e-13,
+          "tolerance": 1.0425425039147761e-09
+        },
+        "knots": {
+          "error": 2.1094237467877974e-15,
+          "tolerance": 5e-13
+        },
+        "sampled_max_error": {
+          "error": 2.842170943040401e-14,
+          "tolerance": 1.0425425039147761e-09
+        },
+        "positions_vs_python": {
+          "error": 4.547473508864641e-12,
+          "tolerance": 2.0850850078295523e-09
+        },
+        "derivatives_vs_python": {
+          "error": 1.1423253454267979e-09,
+          "tolerance": 2.085085007829552e-06
+        },
+        "positions_vs_scipy": {
+          "error": 4.661160346586257e-12,
+          "tolerance": 2.0850850078295523e-09
+        },
+        "derivatives_vs_scipy": {
+          "error": 1.1418705980759114e-09,
+          "tolerance": 2.085085007829552e-06
+        },
+        "cumulative_vs_quadpack": {
+          "error": 8.185452315956354e-12,
+          "tolerance": 1.042542503914776e-08
+        },
+        "total_vs_quadpack": {
+          "error": 2.7284841053187847e-12,
+          "tolerance": 1.042542503914776e-08
+        },
+        "default_inverse_point_vs_python": {
+          "error": 2.0747847884194925e-12,
+          "tolerance": 3.127627511744328e-06
+        },
+        "default_inverse_length_vs_python": {
+          "error": 0.0,
+          "tolerance": 3.127627511744328e-06
+        },
+        "default_inverse_true_residual": {
+          "error": 2.728928194528635e-13,
+          "tolerance": 1.01e-06
+        },
+        "inverse_true_residual": {
+          "error": 1.9568915377021767e-09,
+          "tolerance": 1.1467967543062535e-08
+        },
+        "inverse_parameter_vs_brent": {
+          "error": 7.863154571907671e-13,
+          "tolerance": 1e-09
+        },
+        "dense_trapezoid_reference": {
+          "error": 2.4030123313423246e-06,
+          "tolerance": 0.000521271251957388
+        },
+        "dense_geometric_sample_max": {
+          "error": 0.04714918714549299,
+          "tolerance": 0.052127125195738803
+        }
+      }
+    },
+    {
+      "name": "seeded-1",
+      "args": [
+        -335.7144407475662,
+        -703.6205093662547,
+        -62.819462148550855,
+        -26.662852123799667,
+        173.52214271655268,
+        -1,
+        23.136285695540355,
+        0.04627257139108071,
+        0.05784071423885089
+      ],
+      "continuous": false,
+      "passed": true,
+      "d": 6.507080351870725,
+      "controls": 387,
+      "max_error": 0.05114586498203266,
+      "c_length": 2495.8407796165184,
+      "independent_length": 2495.8407796165193,
+      "original_python_length": 2495.840779443144,
+      "original_python_length_error": 1.7337515600956976e-07,
+      "original_gl_difference_estimate": 1.0648215451602994e-06,
+      "original_gl_max_order": 256,
+      "dense_trapezoid_error": 2.2079611881054007e-06,
+      "dense_geometric_max_error": 0.05114736139293541,
+      "dense_geometric_within_interval": true,
+      "metrics": {
+        "d": {
+          "error": 0.0,
+          "tolerance": 1.1568142847770178e-12
+        },
+        "control_points": {
+          "error": 1.4210854715202004e-14,
+          "tolerance": 1.1568142847770178e-09
+        },
+        "knots": {
+          "error": 6.661338147750939e-16,
+          "tolerance": 5e-13
+        },
+        "sampled_max_error": {
+          "error": 0.0,
+          "tolerance": 1.1568142847770178e-09
+        },
+        "positions_vs_python": {
+          "error": 1.5916157281026244e-12,
+          "tolerance": 2.3136285695540355e-09
+        },
+        "derivatives_vs_python": {
+          "error": 3.4356162359472364e-10,
+          "tolerance": 2.3136285695540353e-06
+        },
+        "positions_vs_scipy": {
+          "error": 1.4779288903810084e-12,
+          "tolerance": 2.3136285695540355e-09
+        },
+        "derivatives_vs_scipy": {
+          "error": 3.433342499192804e-10,
+          "tolerance": 2.3136285695540353e-06
+        },
+        "cumulative_vs_quadpack": {
+          "error": 1.8189894035458565e-12,
+          "tolerance": 1.1568142847770177e-08
+        },
+        "total_vs_quadpack": {
+          "error": 9.094947017729282e-13,
+          "tolerance": 1.1568142847770177e-08
+        },
+        "default_inverse_point_vs_python": {
+          "error": 6.892264536872972e-13,
+          "tolerance": 3.470442854331053e-06
+        },
+        "default_inverse_length_vs_python": {
+          "error": 2.2737367544323206e-13,
+          "tolerance": 3.470442854331053e-06
+        },
+        "default_inverse_true_residual": {
+          "error": 2.728928194528635e-13,
+          "tolerance": 1.01e-06
+        },
+        "inverse_true_residual": {
+          "error": 5.58577539777616e-09,
+          "tolerance": 1.2724957132547194e-08
+        },
+        "inverse_parameter_vs_brent": {
+          "error": 2.2300494784133207e-12,
+          "tolerance": 1e-09
+        },
+        "dense_trapezoid_reference": {
+          "error": 2.2079611881054007e-06,
+          "tolerance": 0.0005784071423885089
+        },
+        "dense_geometric_sample_max": {
+          "error": 0.05114736139293541,
+          "tolerance": 0.05784071423885089
+        }
+      }
+    },
+    {
+      "name": "seeded-2",
+      "args": [
+        -789.4030605162926,
+        142.5058089949993,
+        11.029327583227314,
+        193.00155912469836,
+        185.97969899471977,
+        1,
+        24.797293199295968,
+        0.04959458639859194,
+        0.061993232998239924
+      ],
+      "continuous": false,
+      "passed": true,
+      "d": 6.974238712301991,
+      "controls": 393,
+      "max_error": 0.0545899370202676,
+      "c_length": 2716.1522346791226,
+      "independent_length": 2716.1522346791216,
+      "original_python_length": 2716.1522346686816,
+      "original_python_length_error": 1.0440089681651443e-08,
+      "original_gl_difference_estimate": 1.447957204359085e-05,
+      "original_gl_max_order": 256,
+      "dense_trapezoid_error": 2.4414644030912314e-06,
+      "dense_geometric_max_error": 0.054599853917295604,
+      "dense_geometric_within_interval": true,
+      "metrics": {
+        "d": {
+          "error": 0.0,
+          "tolerance": 1.2398646599647985e-12
+        },
+        "control_points": {
+          "error": 0.0,
+          "tolerance": 1.2398646599647985e-09
+        },
+        "knots": {
+          "error": 0.0,
+          "tolerance": 5e-13
+        },
+        "sampled_max_error": {
+          "error": 0.0,
+          "tolerance": 1.2398646599647985e-09
+        },
+        "positions_vs_python": {
+          "error": 0.0,
+          "tolerance": 2.479729319929597e-09
+        },
+        "derivatives_vs_python": {
+          "error": 9.094947017729282e-13,
+          "tolerance": 2.479729319929597e-06
+        },
+        "positions_vs_scipy": {
+          "error": 2.2737367544323206e-13,
+          "tolerance": 2.479729319929597e-09
+        },
+        "derivatives_vs_scipy": {
+          "error": 9.094947017729282e-13,
+          "tolerance": 2.479729319929597e-06
+        },
+        "cumulative_vs_quadpack": {
+          "error": 9.094947017729282e-13,
+          "tolerance": 1.2398646599647984e-08
+        },
+        "total_vs_quadpack": {
+          "error": 9.094947017729282e-13,
+          "tolerance": 1.2398646599647984e-08
+        },
+        "default_inverse_point_vs_python": {
+          "error": 2.913225216616411e-13,
+          "tolerance": 3.7195939798943954e-06
+        },
+        "default_inverse_length_vs_python": {
+          "error": 2.2737367544323206e-13,
+          "tolerance": 3.7195939798943954e-06
+        },
+        "default_inverse_true_residual": {
+          "error": 1.8185453143360064e-13,
+          "tolerance": 1.01e-06
+        },
+        "inverse_true_residual": {
+          "error": 6.575305633305106e-09,
+          "tolerance": 1.3638511259612781e-08
+        },
+        "inverse_parameter_vs_brent": {
+          "error": 2.4119040098469213e-12,
+          "tolerance": 1e-09
+        },
+        "dense_trapezoid_reference": {
+          "error": 2.4414644030912314e-06,
+          "tolerance": 0.0006199323299823993
+        },
+        "dense_geometric_sample_max": {
+          "error": 0.054599853917295604,
+          "tolerance": 0.061993232998239924
+        }
+      }
+    },
+    {
+      "name": "seeded-3",
+      "args": [
+        -725.5471096835097,
+        -476.28585584882825,
+        -92.14051877764304,
+        -136.83135941356528,
+        198.5237121006739,
+        -1,
+        26.469828280089853,
+        0.05293965656017971,
+        0.06617457070022463
+      ],
+      "continuous": false,
+      "passed": true,
+      "d": 7.444639203775271,
+      "controls": 355,
+      "max_error": 0.0579071232697288,
+      "c_length": 2616.097037775307,
+      "independent_length": 2616.0970377753065,
+      "original_python_length": 2616.097038051168,
+      "original_python_length_error": 2.758615664788522e-07,
+      "original_gl_difference_estimate": 2.692408655491363e-05,
+      "original_gl_max_order": 256,
+      "dense_trapezoid_error": 2.1263685994199477e-06,
+      "dense_geometric_max_error": 0.05790883658150392,
+      "dense_geometric_within_interval": true,
+      "metrics": {
+        "d": {
+          "error": 0.0,
+          "tolerance": 1.3234914140044926e-12
+        },
+        "control_points": {
+          "error": 5.684341886080802e-14,
+          "tolerance": 1.3234914140044928e-09
+        },
+        "knots": {
+          "error": 0.0,
+          "tolerance": 5e-13
+        },
+        "sampled_max_error": {
+          "error": 0.0,
+          "tolerance": 1.3234914140044928e-09
+        },
+        "positions_vs_python": {
+          "error": 1.7053025658242404e-13,
+          "tolerance": 2.6469828280089857e-09
+        },
+        "derivatives_vs_python": {
+          "error": 3.183231456205249e-11,
+          "tolerance": 2.646982828008985e-06
+        },
+        "positions_vs_scipy": {
+          "error": 3.410605131648481e-13,
+          "tolerance": 2.6469828280089857e-09
+        },
+        "derivatives_vs_scipy": {
+          "error": 3.183231456205249e-11,
+          "tolerance": 2.646982828008985e-06
+        },
+        "cumulative_vs_quadpack": {
+          "error": 4.547473508864641e-13,
+          "tolerance": 1.3234914140044927e-08
+        },
+        "total_vs_quadpack": {
+          "error": 4.547473508864641e-13,
+          "tolerance": 1.3234914140044927e-08
+        },
+        "default_inverse_point_vs_python": {
+          "error": 0.0,
+          "tolerance": 3.970474242013478e-06
+        },
+        "default_inverse_length_vs_python": {
+          "error": 2.2737367544323206e-13,
+          "tolerance": 3.970474242013478e-06
+        },
+        "default_inverse_true_residual": {
+          "error": 1.8185453143360064e-13,
+          "tolerance": 1.01e-06
+        },
+        "inverse_true_residual": {
+          "error": 8.026233899727231e-09,
+          "tolerance": 1.4558405554049418e-08
+        },
+        "inverse_parameter_vs_brent": {
+          "error": 3.0544455853487307e-12,
+          "tolerance": 1e-09
+        },
+        "dense_trapezoid_reference": {
+          "error": 2.1263685994199477e-06,
+          "tolerance": 0.0006617457070022464
+        },
+        "dense_geometric_sample_max": {
+          "error": 0.05790883658150392,
+          "tolerance": 0.06617457070022463
+        }
+      }
+    }
+  ]
+}
